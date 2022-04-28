@@ -37,7 +37,7 @@ install_validator () {
   read -e -p "Enter new RAM drive size, GB (recommended size: 200GB):" -i "200" RAM_DISK_SIZE
   read -e -p "Enter new server swap size, GB (recommended size: equal to server RAM): " -i "64" SWAP_SIZE
 
-  rm -rf sv_manager/
+  # rm -rf sv_manager/
 
   if [[ $(which apt | wc -l) -gt 0 ]]
   then
@@ -55,17 +55,17 @@ install_validator () {
   ansible-galaxy collection install ansible.posix
   ansible-galaxy collection install community.general
 
-  echo "Downloading Solana validator manager version $sv_manager_version"
-  cmd="https://github.com/mfactory-lab/sv-manager/archive/refs/tags/$sv_manager_version.zip"
-  echo "starting $cmd"
-  curl -fsSL "$cmd" --output sv_manager.zip
-  echo "Unpacking"
-  unzip ./sv_manager.zip -d .
+  # echo "Downloading Solana validator manager version $sv_manager_version"
+  # cmd="https://github.com/mfactory-lab/sv-manager/archive/refs/tags/$sv_manager_version.zip"
+  # echo "starting $cmd"
+  # curl -fsSL "$cmd" --output sv_manager.zip
+  # echo "Unpacking"
+  # unzip ./sv_manager.zip -d .
 
-  mv sv-manager* sv_manager
-  rm ./sv_manager.zip
-  cd ./sv_manager || exit
-  cp -r ./inventory_example ./inventory
+  # mv sv-manager* sv_manager
+  # rm ./sv_manager.zip
+  # cd ./sv_manager || exit
+  # cp -r ./inventory_example ./inventory
 
   # shellcheck disable=SC2154
   #echo "pwd: $(pwd)"
