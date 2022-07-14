@@ -66,6 +66,7 @@ install_validator () {
   rm ./sv_manager.zip
   cd ./sv_manager || exit
   cp -r ./inventory_example ./inventory
+  sed -i 's/- 10.0.0.0/# - 10.0.0.0/g' ./roles/configure_ubuntu/tasks/firewall.yaml
 
   # shellcheck disable=SC2154
   #echo "pwd: $(pwd)"
